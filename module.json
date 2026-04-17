@@ -1,0 +1,47 @@
+{
+  "id": "pf2e-shop-generator",
+  "title": "PF2E Shop Generator",
+  "description": "Create PF2E merchant actors and populate them with randomly generated inventory from system compendia.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "almagest"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13.348",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "esmodules": [
+    "scripts/main.js",
+    "scripts/shop-generator-form.js"
+  ],
+  "styles": [
+    "styles/shop-generator.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "pf2e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "7.8.0"
+        }
+      }
+    ],
+    "requires": [
+      {
+        "id": "pf2e-toolbelt",
+        "type": "module"
+      }
+    ]
+  }
+}

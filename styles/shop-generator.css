@@ -1,0 +1,125 @@
+.pf2e-shop-generator-launch {
+  margin-bottom: 6px;
+}
+
+.pf2e-shop-generator .window-content {
+  background:
+    radial-gradient(circle at top left, rgba(165, 117, 45, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(26, 20, 14, 0.96), rgba(43, 31, 20, 0.96));
+  color: #f5f1e8;
+}
+
+.pf2e-shop-generator form {
+  display: grid;
+  gap: 16px;
+}
+
+.pf2e-shop-generator,
+.pf2e-shop-generator label,
+.pf2e-shop-generator h3,
+.pf2e-shop-generator .hint,
+.pf2e-shop-generator .checkbox,
+.pf2e-shop-generator button,
+.pf2e-shop-generator input {
+  color: #f5f1e8;
+}
+
+.pf2e-shop-generator input {
+  background: rgba(255, 248, 235, 0.08);
+  border: 1px solid rgba(201, 169, 97, 0.45);
+}
+
+.pf2e-shop-generator input::placeholder {
+  color: rgba(245, 241, 232, 0.7);
+}
+
+.pf2e-shop-generator .shop-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pf2e-shop-generator .full-width {
+  grid-column: 1 / -1;
+}
+
+.pf2e-shop-generator .field-group {
+  border: 1px solid rgba(201, 169, 97, 0.35);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(12, 8, 5, 0.35);
+}
+
+.pf2e-shop-generator .field-group h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.pf2e-shop-generator .field-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pf2e-shop-generator .checkbox-grid {
+  display: grid;
+  gap: 6px 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pf2e-shop-generator .form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.pf2e-shop-generator .file-picker-row {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) 40px;
+  align-items: center;
+}
+
+.pf2e-shop-generator .trait-picker {
+  display: grid;
+  gap: 8px;
+}
+
+.pf2e-shop-generator .trait-picker-input {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) 40px;
+  align-items: center;
+}
+
+.pf2e-shop-generator .trait-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 28px;
+}
+
+.pf2e-shop-generator .trait-chip {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  width: auto;
+  border: 1px solid rgba(201, 169, 97, 0.55);
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: rgba(201, 169, 97, 0.18);
+}
+
+.pf2e-shop-generator .hint {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+@media (max-width: 680px) {
+  .pf2e-shop-generator .shop-grid,
+  .pf2e-shop-generator .field-row,
+  .pf2e-shop-generator .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+}

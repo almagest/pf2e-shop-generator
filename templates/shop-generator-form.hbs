@@ -1,0 +1,146 @@
+<form autocomplete="off">
+  <div class="shop-grid">
+    <div class="field-group">
+      <h3>
+        {{#if isRestock}}
+          {{localize "PF2EShopGenerator.Form.RestockTitle"}}
+        {{else}}
+          {{localize "PF2EShopGenerator.Form.Title"}}
+        {{/if}}
+      </h3>
+      <div class="field-row">
+        {{#unless isRestock}}
+          <div class="form-group">
+            <label>{{localize "PF2EShopGenerator.Form.MerchantName"}}</label>
+            <input type="text" name="merchantName" value="{{defaults.merchantName}}" required />
+          </div>
+        {{/unless}}
+        <div class="form-group">
+          <label>{{localize "PF2EShopGenerator.Form.MerchantImage"}}</label>
+          <div class="file-picker-row">
+            <input type="text" name="merchantImage" value="{{defaults.merchantImage}}" />
+            <button type="button" class="file-picker" data-type="imagevideo" data-target="merchantImage" tabindex="-1">
+              <i class="fas fa-file-import"></i>
+            </button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>{{localize "PF2EShopGenerator.Form.CommonCount"}}</label>
+          <input type="text" name="commonCount" value="{{defaults.commonCount}}" />
+        </div>
+        <div class="form-group">
+          <label>{{localize "PF2EShopGenerator.Form.UncommonCount"}}</label>
+          <input type="text" name="uncommonCount" value="{{defaults.uncommonCount}}" />
+        </div>
+        <div class="form-group">
+          <label>{{localize "PF2EShopGenerator.Form.RareCount"}}</label>
+          <input type="text" name="rareCount" value="{{defaults.rareCount}}" />
+        </div>
+        <div class="form-group">
+          <label>{{localize "PF2EShopGenerator.Form.UniqueCount"}}</label>
+          <input type="text" name="uniqueCount" value="{{defaults.uniqueCount}}" />
+        </div>
+        <div class="form-group">
+          <label>{{localize "PF2EShopGenerator.Form.MinLevel"}}</label>
+          <input type="number" name="minLevel" value="{{defaults.minLevel}}" min="0" max="30" />
+        </div>
+        <div class="form-group">
+          <label>{{localize "PF2EShopGenerator.Form.MaxLevel"}}</label>
+          <input type="number" name="maxLevel" value="{{defaults.maxLevel}}" min="0" max="30" />
+        </div>
+        <div class="form-group">
+          <label>{{localize "PF2EShopGenerator.Form.BuyRatio"}}</label>
+          <input type="number" name="buyRatio" value="{{defaults.buyRatio}}" min="0" max="10" step="0.01" />
+        </div>
+        <div class="form-group">
+          <label>{{localize "PF2EShopGenerator.Form.SellRatio"}}</label>
+          <input type="number" name="sellRatio" value="{{defaults.sellRatio}}" min="0" max="10" step="0.01" />
+        </div>
+      </div>
+      <p class="hint">{{localize "PF2EShopGenerator.Form.CountHint"}}</p>
+      <p class="hint">{{localize "PF2EShopGenerator.Form.RatioHint"}}</p>
+    </div>
+
+    <div class="field-group">
+      <h3>{{localize "PF2EShopGenerator.Form.Categories"}}</h3>
+      <div class="checkbox-grid">
+        {{#each categories}}
+          <label class="checkbox">
+            <input type="checkbox" name="categories" value="{{this.value}}" {{checked this.checked}} />
+            {{this.label}}
+          </label>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="field-group">
+      <h3>{{localize "PF2EShopGenerator.Form.Rarities"}}</h3>
+      <div class="checkbox-grid">
+        {{#each rarities}}
+          <label class="checkbox">
+            <input type="checkbox" name="rarities" value="{{this.value}}" {{checked this.checked}} />
+            {{this.label}}
+          </label>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="field-group full-width">
+      <div class="form-group">
+        <label>{{localize "PF2EShopGenerator.Form.Tags"}}</label>
+        <input type="hidden" name="tags" value="{{defaults.tags}}" data-tags-value />
+        <div class="trait-picker">
+          <div class="trait-picker-input">
+            <input type="search" list="pf2e-shop-generator-traits" data-trait-search autocomplete="off" />
+            <button type="button" data-action="add-trait">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+          <datalist id="pf2e-shop-generator-traits">
+            {{#each traitOptions}}
+              <option value="{{this.value}}" label="{{this.label}}"></option>
+            {{/each}}
+          </datalist>
+          <div class="trait-chips" data-trait-chips>
+            {{#each selectedTags}}
+              <button type="button" class="trait-chip" data-trait="{{this.value}}">
+                <span>{{this.label}}</span>
+                <i class="fas fa-times"></i>
+              </button>
+            {{/each}}
+          </div>
+        </div>
+        <p class="hint">{{localize "PF2EShopGenerator.Form.TagsHint"}}</p>
+      </div>
+      <div class="form-group">
+        <label>{{localize "PF2EShopGenerator.Form.Labels"}}</label>
+        <input type="text" name="labels" value="{{defaults.labels}}" />
+        <p class="hint">{{localize "PF2EShopGenerator.Form.LabelsHint"}}</p>
+      </div>
+      <div class="checkbox-grid">
+        <label class="checkbox">
+          <input type="checkbox" name="openSheet" {{checked defaults.openSheet}} />
+          {{localize "PF2EShopGenerator.Form.OpenSheet"}}
+        </label>
+        {{#unless isRestock}}
+          <label class="checkbox">
+            <input type="checkbox" name="replaceExisting" {{checked defaults.replaceExisting}} />
+            {{localize "PF2EShopGenerator.Form.ReplaceExisting"}}
+          </label>
+        {{/unless}}
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="button" data-action="cancel">{{localize "PF2EShopGenerator.Form.Cancel"}}</button>
+    <button type="submit">
+      <i class="fas fa-store"></i>
+      {{#if isRestock}}
+        {{localize "PF2EShopGenerator.Form.RestockSubmit"}}
+      {{else}}
+        {{localize "PF2EShopGenerator.Form.Submit"}}
+      {{/if}}
+    </button>
+  </div>
+</form>
