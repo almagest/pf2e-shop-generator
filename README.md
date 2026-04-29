@@ -14,6 +14,14 @@ Foundry VTT module for PF2E on Foundry V13 that creates a merchant actor and fil
 
 ## Install
 
+Install from Foundry's **Install Module** dialog with this manifest URL:
+
+```text
+https://github.com/almagest/pf2e-shop-generator/releases/latest/download/module.json
+```
+
+## Local Development
+
 Copy the `pf2e-shop-generator` folder into your Foundry `Data/modules` directory, then enable the module in your world.
 
 ## Notes
