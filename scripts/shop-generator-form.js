@@ -590,7 +590,7 @@ async function createSpellConsumableSource(entry, spell) {
   source.system.spell = foundry.utils.mergeObject(
     spellSource,
     {
-      _id: randomID(),
+      _id: generateId(),
       system: {
         location: {
           value: null,
@@ -664,7 +664,7 @@ function createBetterMerchantFlags(filters) {
         filters: {
           buy: [
             {
-              id: randomID(),
+              id: generateId(),
               name: "Generated Buy Filter",
               enabled: true,
               ratio: filters.buyRatio,
@@ -673,7 +673,7 @@ function createBetterMerchantFlags(filters) {
           ],
           sell: [
             {
-              id: randomID(),
+              id: generateId(),
               name: "Generated Sell Filter",
               enabled: true,
               ratio: filters.sellRatio,
@@ -748,6 +748,10 @@ function serializeGeneratorConfig(config) {
     openSheet: config.openSheet,
     replaceExisting: false,
   };
+}
+
+function generateId() {
+  return foundry.utils.randomID?.() ?? Math.random().toString(36).slice(2, 18);
 }
 
 function hasBetterMerchant() {
